@@ -1,0 +1,13 @@
+#!/usr/bin/python3
+
+a = [1, 8, 3, 4, 5, 5, 7, 8]
+
+b = a[:]
+
+for i in range(len(b)):
+    if b[i] % 2 == 0:
+        b[i] = True
+    else:
+        b[i] = False
+print(a)
+print(b)
