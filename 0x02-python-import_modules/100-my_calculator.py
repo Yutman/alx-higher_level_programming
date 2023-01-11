@@ -1,28 +1,34 @@
 #!/usr/bin/python3
-from calculator_1 import add, sub, mul, div
-
-
-def arg_calc(argv):
-    n = len(argv) - 1
-    if n != 3:
-        print("Usage: ./100-my_calculator.py <a> <operator> <b>")
-        exit(1)
-    a = int(argv[1]
-    op = argv[2]
-    b = int(argv[3])
-    if op == '+'
-        print("{:d} {:s} {:d} = {:d}".format(a, op, b, add(a, b)))
-    elif op == '-':
-        print("{:d} {:s} {:d} = {:d}".format(a, op, b, sub(a, b)))
-    elif op == '*'
-        print("{:d} {:s} {:d} = {:d}".format(a, op, b, mul(a, b)))
-    elif op == '/'
-        print("{:d} {:s} {:d} = {:d}".format(a, op, b, div(a, b)))
-    else:
-        print("Unknown operator. Available operators: +, -, * and /")
-        exit(1)
-
-
-if __name__ == "__main__"
+if __name__ == "__main__":
     import sys
-    arg_calc(sys.argv)
+    from calculator_1 import add, sub, mul, div
+
+    n = len(sys.argv)
+    operator = ''
+
+    if n != 4:
+        print("Usage: ./100-my_calculator.py <a> <operator> <b>")
+        sys.exit(1)
+
+    x = ord(sys.argv[2])
+    if x != 42 and x != 43 and x != 45 and x != 47:
+        print("Unknown operator. Available operators: +, -, * and /")
+        sys.exit(1)
+
+    a = int(sys.argv[1])
+    b = int(sys.argv[3])
+    if x == 42:
+        operator = '*'
+        print("{} {} {} = {}".format(a, operator, b,  mul(a, b))
+
+    if x == 43:
+        operator = '+'
+        print("{} {} {} = {}".format(a, operator, b, add(a, b)))
+
+    if x == 45:
+        operator = '-'
+        print("{} {} {} = {}".format(a, operator, b, sub(a, b)))
+
+    if x == 47:
+        operator = '/'
+        print("{} {} {} = {}".format(a, operator, b, div(a, b)))
